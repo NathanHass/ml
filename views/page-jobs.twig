@@ -1,0 +1,59 @@
+{% extends "base-company.twig" %}
+
+{% block company_content %}
+
+<div class="jobsInfo-mod">
+  <div class="site-width">
+    <h2 class="h1-big">{{post.job_page_title}}</h2>
+    <div class="text-big jobsInfo-p">{{post.job_page_intro_paragrpah}}</div>
+  </div>
+</div>
+
+<div class="jobs-mod bg-gray">
+  <div class="site-width">
+    <ul class="jobs-list">
+      {% for job in jobs %}
+      <li class="job-item">
+        <button class="job-itemTrigger">
+          <h4 class="job-title">{{job.title}}</h4>
+          <i class="job-button"></i>
+        </button>
+        <div class="job-itemTrunc">
+          <div class="job-descMod">
+            <p class="job-descModP text-small">{{job.job_description}}</p>
+          </div>
+          {% for job_item in job.get_field('job_info')%}
+          <div class="job-listMod">
+
+            {% if job_item.acf_fc_layout == 'job_list' %}
+              <h4 class="job-listTitle">{{job_item.list_title}}</h4>
+              <ul class="job-list text-small">
+                {% for items in job_item.job_list_items %}
+                  <li class="job-listItem"> {{items.item}}</li>
+                {% endfor %}
+
+              </ul>
+            {% elseif job_item.acf_fc_layout == 'paragraph' %}
+              <h4 class="job-listTitle">{{job_item.paragraph_title}}</h4>
+              <div class="job-descModP text-small">{{job_item.paragraph}}</div>
+            {% endif %}
+
+          </div>
+          {% endfor %}
+          <a class="job-goToForm" href="#form">Apply For This Job &raquo;</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="jobsInfo-mod" id="form">
+  <div class="site-width">
+    <h2 class="h1-big">{{post.job_form_title}}</h2>
+    <div class="text-big jobsInfo-p">{{post.content}}</div>
+  </div>
+</div>
+
+
+{% endblock %}

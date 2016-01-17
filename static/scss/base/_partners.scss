@@ -1,0 +1,78 @@
+.partners-teaseFeed {
+  padding: 25px 0;
+}
+
+.partners-tease {
+  border-bottom: 1px solid #C5C5C5;
+  padding: 30px 0;
+  &:last-child {
+    border-bottom: 0px solid #C5C5C5;
+  }
+  @include mq(700px) {
+      padding: 50px;
+  }
+  @include mq(800px) {
+    @include pair(200px, 50px);
+  }
+}
+
+.partners-logMod {
+  vertical-align: middle;
+  margin-bottom: 25px;
+  @include mq(800px) {
+    margin-bottom: 0px;
+  }
+}
+
+.partners-logoLink {
+  width: 200px;
+  display: block;
+  margin: 0 0 25px;
+  @include mq(500px) {
+    width: 250px;
+    margin: 0;
+  }
+}
+
+.partners-logo {
+  width: 100%;
+}
+
+.partners-title {
+  @include font(oswald, 18px, 700);
+  @include mq(500px) {
+    font-size: 26px;
+  }
+}
+
+.partners-titleLink {
+  @include link($navy);
+}
+
+.partners-time {
+  @include font(oswald, 14px, 700, normal, 1px, caps);
+
+  margin-top: 5px;
+  @include mq(500px) {
+    font-size: 16px;
+    margin-top: 10px;
+  }
+}
+
+.partners-hgroup {
+  margin-bottom: 18px;
+  padding-bottom: 22px;
+  position: relative;
+  &:after {
+    @include pseudo(n n 0 0);
+    width: 60px;
+    border-bottom: 5px solid $yellow;
+  }
+}
+
+.partners-productTease {
+  padding: 0px;
+  @include font(sans, 14px, 700, normal, 1px, caps);
+  color: $red;
+  @include link;
+}

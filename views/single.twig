@@ -1,0 +1,36 @@
+{% extends "base.twig" %}
+
+{% block body_class %}single{% endblock %}
+
+{% block content %}
+
+	<div class="blog-wrapper">
+		<div class="blog-header">
+			<div class="blog-hgroup">
+				<h1 class="blog-h1">{{post.title}}</h1>
+				<div class="blog-metaMod">
+					<ul class="blog-metaInfo">
+						<li class="blog-metaItem blog-metaItem--author">By {{post.author}}</li>
+						<li class="blog-metaItem blog-metaItem--date">{{ post.post_date|date}}</li>
+					</ul>
+					<ul class="blog-socialList">
+						<li class="blog-socialItem"><a class="qs-link blog-socialLink blog-socialLink--twitter" data-qs-service="twitter"></a></li>
+						<li class="blog-socialItem"><a class="qs-link blog-socialLink blog-socialLink--facebook" data-qs-service="facebook-share"></a></li>
+						<li class="blog-socialItem"><a class="qs-link blog-socialLink blog-socialLink--linkedin" data-qs-service="linkedin"></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="blog-body">
+			{{post.content}}
+		</div>
+	</div> <!-- /content-wrapper -->
+
+{% endblock %}
+
+
+{% block page_scripts %}
+	<script src="{{site.theme.path}}/bower_components/fitvids/jquery.fitvids.js"></script>
+	<script src="{{site.theme.path}}/bower_components/quickshare/dist/quickshare.min.js"></script>
+{% endblock %}

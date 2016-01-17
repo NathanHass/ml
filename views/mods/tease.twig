@@ -1,0 +1,15 @@
+<li class="tease tease-{{post.post_type}}{% if post.get_thumbnail %} tease-withImg{% endif %}" id="tease-{{post.ID}}">
+	{% block content %}
+		<h2 class="tease-h3"><a href="{{post.link}}">{{post.title}}</a></h2>
+    <div class="tease-body">
+      <ul class="tease-metaInfo">
+        <li class="tease-metaItem tease-metaItem--author">By {{ post.author}}</li>
+        <li class="tease-metaItem tease-metaItem--date">{{ post.post_date|date}}</li>
+      </ul>
+  		<p class="tease-p text-small">{{post.get_preview(30,false,'Read&nbsp;More&nbsp;&raquo;')}}</p>
+    </div>
+		{% if post.get_thumbnail %}
+			<a href="{{post.link}}" class="tease-img" style="background-image: url({{post.thumbnail.src}})"></a>
+		{% endif %}
+	{% endblock %}
+</li>

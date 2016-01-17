@@ -1,0 +1,15 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  {% include 'mods/site-topper.twig' %}
+
+  <div class="site-width">
+    <ul class="blog-feed">
+      {% for post in posts %}
+        {% include ['mods/tease-'~post.post_type~'.twig', 'mods/tease.twig'] %}
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

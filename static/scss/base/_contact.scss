@@ -1,0 +1,147 @@
+.contact-formMod {
+  padding: 50px 0;
+}
+
+.contact-infoMod {
+  padding: 30px 0;
+  @include mq(700px) {
+    padding: 70px 0;
+  }
+}
+
+.contact-width {
+  max-width: 800px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+#map-canvas {
+  height: 300px;
+  @include mq(600px) {
+    height: 450px;
+  }
+}
+
+.contact-infoGrid {
+  @include mq(700px) {
+    @include media-grid(2, 20px, '.contact-infoGridItem');
+  }
+}
+
+.contact-infoGridItem {
+  @include mq(max, 700px) {
+    &:first-child {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.contact-h {
+  @include font(sans, 17px, 700, normal, 1px, caps);
+  text-transform: uppercase;
+  border-bottom: 2px solid $navy;
+  color: $navy;
+  margin-bottom: 12px;
+  padding: 0 0 2px 3px;
+}
+
+.contact-infoList {
+  padding-left: 3px;
+}
+
+.contact-infoItem {
+  position: relative;
+  @include font(serif, 17px);
+  margin-bottom: 10px;
+  padding-left: 12px;
+  &:before {
+    display: block;
+    content: '+';
+    @include absolute(2px n n 0);
+    @include size(10px);
+    @include font(serif, 13px, 700);
+  }
+}
+
+.contact-socialItem {
+  display: inline-block;
+}
+
+.contact-socialList {
+  padding-left: 3px;
+}
+
+.contact-socialLink {
+  @include size(25px);
+  display: block;
+  margin-right: 10px;
+  background-color: $navy;
+  border-radius: 50%;
+  background-size: 80%;
+  background-position: 50% 50%;
+}
+
+.contact-socialLink--twitter {
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/twitter.png');
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/twitter.svg');
+}
+
+.contact-socialLink--facebook {
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/facebook.png');
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/facebook.svg');
+}
+
+.contact-socialLink--linkedin {
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/linkedin.png');
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/linkedin.svg');
+}
+
+// Form stuff
+
+.fscf-input-text {
+  @include input-default;
+  width: 100%;
+  background-color: #F2F3F3;
+  padding: 10px;
+  @include font(serif, 15px)
+}
+.fscf-input-textarea {
+  @include input-default;
+  width: 100%;
+  background-color: #F2F3F3;
+  padding: 14px;
+  @include font(serif, 15px)
+}
+.fscf-div-clear {
+  margin-bottom: 10px;
+}
+
+.fscf-div-label {
+  @include font(serif, 15px);
+  margin-bottom: 5px;
+}
+
+.fscf-button-submit {
+  @include input-default;
+  display: inline-block;
+  padding: 8px 30px 7px;
+  @include font(oswald, 15px, 700, normal, 1px, caps);
+  border: 2px solid;
+}
+
+#fscf_div_clear1_0 {
+  @include mq(700px) {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+  }
+}
+#fscf_div_clear1_1 {
+  @include mq(700px) {
+    float: left;
+    width: 48%;
+  }
+}
+
+
+

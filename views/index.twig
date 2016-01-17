@@ -1,0 +1,42 @@
+{% extends "base.twig" %}
+
+{% block content %}
+  <div class="hp-topperMod page-break--1">
+    <div class="site-width">
+      <h1 class="hp-topperH1">{{options.homepage_intro_headline}}</h1>
+      <h2 class="hp-topperH2">{{options.homepage_intro_text}}</h2>
+      <a href="/contact" class="hp-button">{{options.homepage_intro_button_text}}</a>
+   </div>
+  </div>
+ {% for content_block in options.content_block %}
+
+  <div class="hp-layoutBlock {{content_block.background_treatment}}" {% if content_block.background_treatment == 'bg-image bg-image--custom' %} style="background-image: url('{{TimberImage(content_block.custom_background_image).src}}')" {% endif %}>
+    <div class="site-width">
+      <h3 class="hp-pageH">{{content_block.headline}}</h3>
+      <h4 class="hp-pageSub">{{content_block.subhead}}</h4>
+      <a href="{{content_block.button_link}}" class="hp-button">{{content_block.button_text}}</a>
+   </div>
+  </div>
+  {% endfor %}
+
+  <div class="hp-layoutBlock">
+    <div class="site-width">
+      <h3 class="hp-pageH">{{options.homepage_partners_headline}}</h3>
+      <h4 class="hp-pageSub">{{options.homepage_partners_text}}</h4>
+        <div class="hp-partnerLogoWidth">
+        <ul class="hp-partnerLogoGrid">
+           {% for partner in partners %}
+
+            <li class="hp-partnersLogoMod">
+                <a href="/partner#partner--{{partner.partner_name|sanitize}}" class="hp-partnersLogoLink"><img src="{{TimberImage(partner.get_field('partner_logo')).src}}" class="hp-partnersLogo"></a>
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      <a href="/partner" class="hp-button">{{options.homepage_partners_button_text}}</a>
+   </div>
+  </div>
+
+  </div>
+
+{% endblock %}

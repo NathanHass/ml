@@ -1,0 +1,44 @@
+{% block html_head_container %}
+<!doctype html>
+<!--[if lt IE 7]><html class="no-js ie ie6 lt-ie9 lt-ie8 lt-ie7" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 7]><html class="no-js ie ie7 lt-ie9 lt-ie8" {{site.language_attributes}}> <![endif]-->
+<!--[if IE 8]><html class="no-js ie ie8 lt-ie9" {{site.language_attributes}}> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" {{site.language_attributes}}> <!--<![endif]-->
+    <head>
+    <meta charset="{{site.charset}}" />
+    <title>{{ post.title ? post.title ~ ' - ' }}{{site.name}}</title>
+    <meta name="description" content="{{site.description}}">
+    <script type="text/javascript" src="{{site.theme.path}}/bower_components/modernizr/modernizr.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300|Montserrat:400,700|Roboto+Slab:400,700,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{site.theme.link}}/static/css/screen.css" type="text/css" media="screen" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="pingback" href="{{site.pingback_url}}" />
+    {% include 'mods/google-analytics.twig' %}
+    {{function('wp_head')}}
+
+    {% block head %}
+    {% endblock %}
+    </head>
+{% endblock %}
+    <body class="body {% block body_class %}{% endblock %}" data-template="base.twig">
+
+        {% include 'mods/nav.twig' %}
+
+        <section class="contentWrapper">
+                {% if title %}<h1>{{title}}</h1>{% endif %}
+                {% block content %}
+                    Sorry, no content
+                {% endblock %}
+        </section>
+
+        {% block footer %}
+            {% include 'mods/footer.twig' %}
+            {{ function('wp_footer') }}
+        {% endblock %}
+            <script src="{{site.theme.path}}/bower_components/jquery/jquery.min.js"></script>
+            {% block page_scripts %}{% endblock %}
+            <script src="{{site.theme.path}}/static/js/site.js"></script>
+    </body>
+</html>

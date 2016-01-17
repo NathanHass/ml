@@ -1,0 +1,415 @@
+
+@mixin link($color: $red, $size: 2px) {
+  // color: $color;
+  box-shadow: 0 0px $color inset;
+  @include trans(.1s, all, ease);
+  &:hover {
+    box-shadow: 0 (-1 * $size) $color inset;
+  }
+}
+
+@mixin trans($time: .3s, $property: all, $timing-function: ease) {
+  transition: $property, $time, $timing-function;
+}
+
+
+@mixin pie-clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Input Defaults
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Zero'ing out the style on an input field (text input, radio button, etc)
+// WHY: It's a lot to write and remember all these characteristics
+// USE: @include input-default;
+
+@mixin input-default {
+  border: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  &:focus {
+    outline: 0;
+  }
+}
+
+// The Media Query Mixin
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Write less verbose Media Queries with variables
+// or using straight figures (eg 320px)
+// WHY: Faster to write. More flexible. Lets you write
+// media query variables on the fly.
+// USE: @include mq(320px, 798px);
+// USE: @include mq($tablet, $desktop);
+// USE: @include mq(max, $desktop);
+
+@mixin mq($bp-1, $bp-2: null) {
+  @if $bp-1 == "max" {
+    @media (max-width:$bp-2 - 1) { @content; }
+  }
+
+  @elseif $bp-2 == "max" {
+    @media (max-width:$bp-1 - 1) { @content; }
+  }
+
+  @elseif $bp-2 == null {
+    @media (min-width: $bp-1) { @content; }
+  } //single bp
+
+  @else {
+    @media (min-width: $bp-1) and (max-width:$bp-2 - 1) { @content; }
+  } //bracketed breakpoint
+}
+
+// Size
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Applying width & height in a single declaration
+// WHY: Faster. Less typing. Easier to deal with squares.
+// NOTE: If you supply a single value, the result is a square
+// REF: http://bourbon.io/docs/#size
+// USE: @include size(50px 100px);
+
+@mixin size($size) {
+  @if length($size) == 1 {
+    @if $size == auto {
+      width:  $size;
+      height: $size;
+    }
+
+    @else if unitless($size) {
+      width:  $size + px;
+      height: $size + px;
+    }
+
+    @else if not(unitless($size)) {
+      width:  $size;
+      height: $size;
+    }
+  }
+
+  // Width x Height
+  @if length($size) == 2 {
+    $width:  nth($size, 1);
+    $height: nth($size, 2);
+
+    @if $width == auto {
+      width: $width;
+    }
+    @else if not(unitless($width)) {
+      width: $width;
+    }
+    @else if unitless($width) {
+      width: $width + px;
+    }
+
+    @if $height == auto {
+      height: $height;
+    }
+    @else if not(unitless($height)) {
+      height: $height;
+    }
+    @else if unitless($height) {
+      height: $height + px;
+    }
+  }
+}
+
+// Media Grid
+
+@mixin media-grid($num: 2, $pad: em(20), $target:'.media-block') {
+  margin-left: -#{$pad};
+  @include pie-clearfix;
+
+  > #{$target} {
+    float: left;
+    padding-left: #{$pad};
+    @if $num == 2 or $num == "two" {
+      width: 50%;
+      &:nth-of-type(2n+3) {
+        clear: left;
+      }
+      &.n3 {
+        clear:left;
+      }
+    }
+    @if $num == 3 or $num == "three" {
+      width: 33.3333%;
+      &:nth-of-type(3n+4) {
+        clear: left;
+      }
+      .ie7 & {
+        width: 33%;
+      }
+      &.n4 {
+        clear: left;
+      }
+    }
+    @if $num == 4 or $num == "four" {
+      width: 25%;
+      &:nth-of-type(4n+5) {
+        clear: left;
+      }
+      &.n5 {
+        clear: left;
+      }
+    }
+    @if $num == 5 or $num == "five" {
+      &:nth-of-type(5n+6) {
+        clear: left;
+      }
+      width: 20%;
+      &.n6 {
+        clear: left;
+      }
+    }
+    @if $num == 6 or $num == "six" {
+      &:nth-of-type(6n+7) {
+        clear: left;
+      }
+      width: 16.666%;
+      .ie7 & {
+        width: 16%;
+      }
+      &.n7 {
+        clear: left;
+      }
+    }
+  }
+} //media-grid
+
+// Absolute Positioning
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Quickly setting the top, right, left, and bottom positions of an absolutely positioned element
+// WHY: It's verbose to write everytime in CSS
+// USE: @include absolute(0 0 10px 0);
+@mixin absolute($coordinates: n n n n) {
+
+  $top: nth($coordinates, 1);
+  $right: nth($coordinates, 2);
+  $bottom: nth($coordinates, 3);
+  $left: nth($coordinates, 4);
+
+  position: absolute;
+
+  @if $top == auto or $top == a {
+    top: auto;
+  }
+  // Print nothing if we write an "n" or "none"
+  @else if $top == n or $top == none {
+  }
+  @else {
+    top: $top;
+  }
+
+  @if $right == auto or $right == a {
+    right: auto;
+  }
+  // Print nothing if we write an "n" or "none"
+  @else if $right == n or $right == none {
+  }
+  @else {
+    right: $right;
+  }
+
+  @if $bottom == auto or $bottom == a {
+    bottom: auto;
+  }
+  // Print nothing if we write an "n" or "none"
+  @else if $bottom == n or $bottom == none{
+  }
+  @else {
+    bottom: $bottom;
+  }
+
+  @if $left == auto or $left == a {
+    left: auto;
+  }
+  // Print nothing if we write an "n" or "none"
+  @else if $left == n or $left == none {
+  }
+  @else {
+    left: $left;
+  }
+}
+
+@mixin unabsolute {
+  position: static;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: auto;
+}
+
+// Placeholder Text
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Styling placeholder text color states (default, hover, focus)
+// WHY: Provides a shortcut for writing the code, which is necessarily long
+// because selectors cannot be combined. Also a cross-browser solution.
+// USE: @include placeholder-state(#999, #999, #222);
+@mixin placeholder-state($default: inherit, $hover: $default, $focus: $default){
+  // You have to declare these separately in order to work
+  &::-webkit-input-placeholder {
+      color: $default;
+  }
+  &:-moz-placeholder {
+      color: $default;
+  }
+  &:hover::-webkit-input-placeholder {
+      color: $hover;
+  }
+  &:hover:-moz-placeholder {
+      color: $hover;
+  }
+  &:focus::-webkit-input-placeholder {
+      color: $focus;
+  }
+  &:focus:-moz-placeholder {
+      color: $focus;
+  }
+}
+
+// Absolute Centering
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Centering (both horizontally & vertically)
+// absolutely positioned items
+// WHY: This does the math for you
+// USE: @include absolute-center(n 22px);
+@mixin absolute-center($dimensions) {
+  // If only one value is supplied,
+  // default to center the width
+  @if length($dimensions) == 1 {
+    $dimensions: $dimensions n;
+  }
+
+  $width: nth($dimensions, 1);
+  $height: nth($dimensions, 2);
+
+  position: absolute;
+
+  @if $width != n {
+    @if not(unitless($width)) {
+      width: $width;
+      margin-left: (-$width / 2);
+    }
+    @if unitless($width) {
+      width: $width + px;
+      margin-left: (-$width / 2) + px;
+    }
+    left: 50%;
+  }
+
+  @if $height != n {
+    @if not(unitless($height)) {
+      height: $height;
+      margin-top: (-$height / 2);
+    }
+    @if unitless($height) {
+      height: $height + px;
+      margin-top: (-$height / 2) + px;
+    }
+    top: 50%;
+  }
+} // absolute-center
+
+
+// Art & Text Pairs
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+// FOR: Harmoniously placing art and text next to each other.
+// Good for thumbnails/text and many other art/text situations
+// WHY: It's a common pattern. It's easier to write this way.
+
+// HTML:
+// <article class="l-pair">
+//  <div class="art-bd">
+//    <img class="art" src="#" />
+//  </div> <!-- /art-bd -->
+//  <div class="txt-bd">
+//    <h1>Headline</h1>
+//    <p>Paragraph paragraph paragraph paragraph</p>
+//  </div> <!-- /txt-bd -->
+// </article> <!-- /l-pair -->
+
+// USE: @include pair(100px, 30px);
+
+@mixin pair($art-width: 50px, $art-margin: 20px, $v-align: middle, $direction: left) {
+  $gutter: $art-width + $art-margin;
+  @include pie-clearfix;
+
+  @if $v-align == middle {
+    display: table;
+
+    > .art-bd {
+      display: table-cell;
+      width: $art-width;
+      margin: 0;
+      > img,
+      > .art {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    > .txt-bd {
+      display: table-cell;
+      vertical-align: middle;
+      padding-left: $art-margin;
+    }
+
+    // If lower than IE8, which has no
+    // support for tables
+    .lt-ie8 & {
+      > .art-bd,
+      > .txt-bd {
+        display: block;
+      }
+      > .art-bd {
+        width: $art-width;
+        float: left;
+      }
+      > .txt-bd {
+        margin-left: $gutter;
+      }
+    } // .lt-ie8
+  } //middle
+
+  @else {
+    > .art-bd,
+    > .txt-bd {
+      display: block;
+    }
+    > .art-bd {
+      width: $art-width;
+      @if $direction == right {
+        float: right;
+      } @else {
+        float: left;
+      }
+      margin: 0;
+      > img,
+      > .art {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+    > .txt-bd {
+      @if $direction == right {
+        margin-right: $gutter;
+      } @else {
+        margin-left: $gutter;
+      }
+    }
+  }
+
+} //pair
+
+@mixin pseudo($coordinates: none) {
+  content: ' ';
+  display: block;
+  @if $coordinates != "none" {
+    @include absolute($coordinates);
+  }
+}

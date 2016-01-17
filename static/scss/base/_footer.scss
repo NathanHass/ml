@@ -1,0 +1,39 @@
+.footer-logoMod {
+  background-color: $yellow;
+  padding: 20px 0;
+}
+
+.footer-logo {
+  width: 180px;
+  margin: 0 auto;
+  display: block;
+}
+
+.footer-linkMod {
+  padding: 10px;
+  background-color: $navy;
+  text-align: center;
+}
+
+.footer-linkList {
+  padding: 20px 0 10px;
+}
+
+.footer-linkItem {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: #fff;
+  padding: 0 15px;
+  @include font(oswald, 14px, 700, normal, 1px, caps);
+  @include mq(500px) {
+    padding: 0 20px;
+  }
+}
+
+.footer-copyright {
+  @include font(serif, 12px);
+  color: rgba(255,255,255,.7)
+}

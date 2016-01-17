@@ -1,0 +1,129 @@
+
+
+.article-txt ul,
+.article-txt ol {
+  max-width: 580px;
+  margin: 0 auto 30px;
+  line-height: 150%;
+  @include font(serif, 17px);
+  @include mq(600px) {
+    font-size: 18px;
+  }
+  > li {
+    margin-bottom: 5px;
+  }
+  > ul {
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+  }
+
+  a {
+    @include link(dotted);
+  }
+  i {
+    font-style: italic;
+  }
+}
+
+.article-txt ul {
+  list-style: disc outside;
+}
+
+.txt {
+  line-height: 150%;
+  @include font(serif, 15px);
+  @include mq(600px) {
+    font-size: 18px;
+  }
+}
+
+.list-alpha {
+  list-style: lower-alpha outside;
+}
+
+.list-num {
+  list-style: decimal outside;
+}
+
+.list-bull {
+  list-style: disc outside;
+}
+
+.list-alpha,
+.list-num,
+.list-bull {
+  max-width: 530px;
+  padding-left: 25px;
+}
+.list-alpha li,
+.list-num li,
+.list-bull li,
+.list-alpha-item,
+.list-num-item,
+.list-bull-item {
+  color: $navy;
+  margin-bottom: 10px;
+  @include font(serif, 16px, 500);
+  a {
+    text-decoration: underline;
+    @include trans;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+.list-alpha-item h3,
+.list-alpha-h,
+.list-num-item h3,
+.list-num-h,
+.list-bull-item h3,
+.list-bull-h {
+  @include font(oswald, 16px, 700);
+  margin-bottom: 5px;
+  a {
+    text-decoration: underline;
+    @include trans;
+    &:hover {
+      color: $red;
+    }
+  }
+}
+
+.list-alpha p,
+.list-num p,
+.list-bull-item p {
+  line-height: 140%;
+  @include font(serif, 17px, 400);
+  a {
+    color: #888;
+    @include trans;
+    text-decoration: underline;
+    &:hover {
+      color: red;
+    }
+  }
+}
+
+.list-horiz li {
+  @include font(serif, 17px, 400);
+  display: inline-block;
+  position: relative;
+  &:after {
+    content: "|";
+    margin: 0 5px;
+    @include font(serif, 17px, 500);
+  }
+  &:last-child {
+    &:after {
+      display: none;
+    }
+  }
+  a {
+    text-decoration: underline;
+    @include trans;
+    &:hover {
+      color: $red;
+    }
+  }
+}

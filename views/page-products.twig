@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  <div class="siteTopper siteTopper--{{post.title|sanitize}}">
+    <h1 class="siteTopper-title">{{options.product_page_headline}}</h1>
+    {% if options.product_page_subtitle %}
+      <h2 class="siteTopper-subTitle">{{options.product_page_subtitle}}</h2>
+    {% endif %}
+  </div>
+
+  {{post.page_headline}}
+  <div class="site-width">
+    <div class="product-mod">
+      <div class="product-grid">
+        {% for product in products %}
+          <a class="product-item" href="{{product.link}}">
+            {% if product.tease_thumbnail %}
+            <img class="product-itemImg" src="{{TimberImage(product.tease_thumbnail).src|resize(250, 250)}}">
+            {% elseif product.lead_product_image %}
+            <img class="product-itemImg" src="{{TimberImage(product.lead_product_image).src|resize(250, 250)}}">
+            {% else %}
+            <i class="product-itemImg"></i>
+            {% endif %}
+
+            {% if product.tease_headline %}
+            <h3 class="product-h">{{product.tease_headline}}</h3>
+            {% else %}
+            <h3 class="product-h">{{product.product_title}}</h3>
+            {% endif %}
+
+            {% if product.tease_subhead %}
+            <p class="news-p text-small">{{product.tease_subhead}}</p>
+            {% else %}
+
+            <p class="news-p text-small">
+              {% for typeof_content in product.get_field('post_content')|slice(0, 1)%}
+                {% if typeof_content.acf_fc_layout == 'post_body_content' %}
+                    {{typeof_content.main_content | excerpt(15)}}
+                {% endif %}
+              {% endfor %}
+            </p>
+            {% endif %}
+          </a>
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

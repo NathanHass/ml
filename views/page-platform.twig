@@ -1,0 +1,142 @@
+{% extends "base-company.twig" %}
+
+{% block company_content %}
+
+
+<div class="platform-introMod">
+  <div class="site-width">
+    <div class="text-width">
+      <h2 class="h2">{{post.platform_topper_title}}</h2>
+      <div class="text-big">{{post.platform_topper_paragraph}}</div>
+    </div>
+  </div>
+</div>
+
+<div class="platform-techMod slide-0">
+  <div class="platform-techTextMod bg-blue">
+    <div class="platform-textWidth">
+      <h5 class="platform-h">{{post.platform_tech_intro_title}}</h5>
+      <p class="text-big platform-text">{{post.platform_tech_intro_paragraph}}</p>
+    </div>
+    <ul class="platform-buttonList">
+      <li class="platform-buttonItem">
+        <button class="platform-button platform-button1"><i class="platform-icon platform-icon--01"></i>Analytics</button>
+      </li>
+      <li class="platform-buttonItem">
+        <button class="platform-button platform-button2"><i class="platform-icon platform-icon--02"></i>Adaptive</button>
+      </li>
+      <li class="platform-buttonItem">
+        <button class="platform-button platform-button3"><i class="platform-icon platform-icon--03"></i>Artificial Intelligence</button>
+      </li>
+    </ul>
+  </div>
+  <div class="platform-techSwiperMod">
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide platform-techSwiperSlide platform-techSwiperSlide--analytics">
+        <div class="platform-swiperInner">
+          <h3 class="platform-swiperH">Analytics</h3>
+          <img src="{{site.theme.path}}/static/img/graph.png" class="platform-swiperImg--analytics">
+          <p class="platform-swiperText">{{post.platform_tech_analytics_paragraph}}</p>
+        </div>
+      </div>
+      <div class="swiper-slide platform-techSwiperSlide platform-techSwiperSlide--adaptive">
+        <div class="platform-swiperInner">
+          <h3 class="platform-swiperH">Adaptive</h3>
+          <img src="{{site.theme.path}}/static/img/adaptive.png" class="platform-swiperImg--adaptive">
+          <p class="platform-swiperText">{{post.platform_tech_adaptive_paragraph}}</p>
+        </div>
+      </div>
+
+      <div class="swiper-slide platform-techSwiperSlide  platform-techSwiperSlide--ai">
+        <div class="platform-swiperInner">
+          <h3 class="platform-swiperH">Artificial Intelligence</h3>
+          <p class="platform-swiperText">{{post.platform_tech_artificial_intelligence_paragraph}}</p>
+
+          <div class="platform-iaAnimMod">
+            <div class="platform-iaAnimModInner">
+              <ul class="platform-aiBarsMod">
+                <li class="platform-aiBar"></li>
+                <li class="platform-aiBar"></li>
+              </ul>
+              <ul class="platform-aiIconsMod">
+                <li class="platform-aiIconItem">
+                  <i class="platform-aiIcon"></i>
+                </li>
+                <li class="platform-aiIconItem">
+                  <i class="platform-aiIcon"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="page-break {{post.platform_post_tech_background_treatment}}" {% if post.platform_post_tech_background_treatment == 'bg-image bg-image--custom' %} style="background-image: url('{{TimberImage(post.platform_post_tech_custom_background_image).src}}')" {% endif %}>
+  <p class="page-breakText">{{post.platform_post_tech_content}}</p>
+</div>
+
+<div class="platform-ideasMod slide-0">
+  <div class="platform-ideasTextMod bg-red">
+    <div class="platform-textWidth">
+      <h5 class="platform-h">{{post.platform_idea_intro_title}}</h5>
+      <p class="text-big platform-text">{{post.platform_idea_intro_paragraph}}</p>
+    </div>
+    <ul class="platform-buttonList">
+      <li class="platform-buttonItem">
+        <button class="platform-button platform-button4"><i class="platform-icon platform-icon--04"></i>High Order thinking</button>
+      </li>
+      <li class="platform-buttonItem">
+        <button class="platform-button platform-button5"><i class="platform-icon platform-icon--05"></i>Learning Together</button>
+      </li>
+      <li class="platform-buttonItem">
+        <button class="platform-button platform-button6"><i class="platform-icon platform-icon--06"></i>Active Learning</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="platform-ideasSwiperMod">
+    <div class="swiper-wrapper">
+        <!-- Slides -->
+        <div class="swiper-slide platform-ideasSwiperSlide platform-ideasSwiperSlide--higherOrder">
+          <div class="platform-swiperInner">
+            <h3 class="platform-swiperH">Auto Assessing Higher Order Thinking</h3>
+            <p class="platform-swiperText">{{post.platform_idea_higher_order_paragraph}}</p>
+            <div class="platform-swiperImgMod--higherOrder">
+              <img src="{{site.theme.path}}/static/img/higher-order.png" class="platform-swiperImg--higherOrder">
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide platform-ideasSwiperSlide platform-ideasSwiperSlide--learning">
+          <div class="platform-swiperInner">
+            <h3 class="platform-swiperH">Learning Together</h3>
+            <p class="platform-swiperText">{{post.platform_idea_learning_together_paragraph}}</p>
+          </div>
+        </div>
+        <div class="swiper-slide platform-ideasSwiperSlide platform-ideasSwiperSlide--activeLearning">
+          <div class="platform-swiperInner">
+            <h3 class="platform-swiperH">Capturing Active Learning</h3>
+            <p class="platform-swiperText">{{post.platform_idea_active_learning_paragraph}}</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+  <div class="page-break {{post.platform_post_ideas_background_treatment}}" {% if post.platform_post_ideas_background_treatment == 'bg-image bg-image--custom' %} style="background-image: url('{{TimberImage(post.platform_post_ideas_custom_background_image).src}}')" {% endif %}>
+    <p class="page-breakText">{{post.platform_post_ideas_content}}</p>
+  </div>
+
+</div>
+
+{% endblock %}
+
+{% block page_scripts %}
+  <script src="{{site.theme.path}}/bower_components/swiper/dist/js/swiper.jquery.min.js"></script>
+  <script src="{{site.theme.path}}/static/js/platform.js"></script>
+{% endblock %}

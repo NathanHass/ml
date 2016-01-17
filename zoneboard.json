@@ -1,0 +1,146 @@
+{
+    "message" : "Where do you want to start?",
+    "bricks" : [
+        {
+            "label"     :   "Jobs",
+            "icon"      :   "fa-wrench",
+            "links"     :   [
+                {
+                    "label" :   "Job - Manage Page",
+                    "url"   :   "/wp-admin/post.php?post=169&action=edit"
+                },
+                {
+                    "label" :   "Job - Add or Remove Jobs",
+                    "url"   :   "/wp-admin/edit.php?post_type=jobs"
+                },
+                {
+                    "label" :   "Job - Form",
+                    "url"   :   "/wp-admin/plugins.php?page=si-contact-form/si-contact-form.php&fscf_tab=1&fscf_form=2"
+                }
+            ]
+        },
+        {
+            "label"     :   "News",
+            "icon"      :   "fa-file-text",
+            "links"     :   [
+                {
+                    "label" :   "News - Manage Page",
+                    "url"   :   "/wp-admin/post.php?post=40&action=edit"
+                },
+                {
+                    "label" :   "News - Add or Remove News",
+                    "url"   :   "/wp-admin/edit.php?post_type=news"
+                }
+            ]
+        },
+        {
+            "label"     :   "Partners",
+            "icon"      :   "fa-users",
+            "links"     :   [
+                {
+                    "label" :   "Partners - Manage Page",
+                    "url"   :   "/wp-admin/post.php?post=426&action=edit"
+                },
+                {
+                    "label" :   "Partners - Add or Remove Partners",
+                    "url"   :   "/wp-admin/edit.php?post_type=partners"
+                }
+            ]
+        },
+        {
+            "label"     :   "Products",
+            "icon"      :   "fa-picture-o",
+            "links"     :   [
+                {
+                    "label" :   "Product - Manage Page",
+                    "url"   :   "/wp-admin/admin.php?page=acf-options-products-page"
+                },
+                {
+                    "label" :   "Product - Add a product",
+                    "url"   :   "/wp-admin/edit.php?post_type=products"
+                },
+                {
+                    "label" :   "Product - Manage Product Nav",
+                    "url"   :   "/wp-admin/admin.php?page=acf-options-products-nav"
+                }
+            ]
+        },
+        {
+            "label"     :   "Blog",
+            "icon"      :   "fa-quote-left",
+            "links"     :   [
+                {
+                    "label" :   "Blog - Manage Page",
+                    "url"   :   "/wp-admin/post.php?post=1515&action=edit"
+                },
+                {
+                    "label" :   "Blog - Add or Remove a Post",
+                    "url"   :   "/wp-admin/edit.php"
+                }
+            ]
+        },
+        {
+            "label"     :   "Contact",
+            "icon"      :   "fa-phone",
+            "links"     :   [
+                {
+                    "label" :   "Contact - Manage Page",
+                    "url"   :   "/wp-admin/post.php?post=64&action=edit"
+                },
+                {
+                    "label" :   "Contact - Form",
+                    "url"   :   "/wp-admin/plugins.php?page=si-contact-form/si-contact-form.php"
+                }
+            ]
+        },
+        {
+            "label"     :   "Other Pages",
+            "icon"      :   "fa-sitemap",
+            "links"     :   [
+                {
+                    "label" :   "Manage Homepage",
+                    "url"   :   "/wp-admin/admin.php?page=acf-options-homepage"
+                },
+                {
+                    "label" :   "Manage Team Page",
+                    "url"   :   "/wp-admin/post.php?post=36&action=edit"
+                },
+                {
+                    "label" :   "Manage Process Page",
+                    "url"   :   "/wp-admin/post.php?post=44&action=edit"
+                },
+                {
+                    "label" :   "Manage Platform Page",
+                    "url"   :   "/wp-admin/post.php?post=34&action=edit"
+                }
+            ]
+        },
+        {
+            "label"     :   "Site-Wide",
+            "icon"      :   "fa-cog",
+            "links" :   [
+                {
+                    "label" :   "Site Info",
+                    "url"   :   "/wp-admin/options-general.php"
+                },
+                {
+                    "label" :   "Site Style Guide",
+                    "url"   :   "/style-guide/"
+                },
+                {
+                    "label" :   "Primary Nav",
+                    "url"   :   "/wp-admin/nav-menus.php?action=edit&menu=5"
+                },
+                {
+                    "label" :   "Footer Links",
+                    "url"   :   "/wp-admin/nav-menus.php?action=edit&menu=6"
+                },
+                {
+                    "label" :   "Manage Redirects",
+                    "url"   :   "/wp-admin/edit.php?post_type=redirect_rule"
+                }
+            ]
+        }
+    ]
+
+}

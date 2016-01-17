@@ -1,0 +1,38 @@
+{% extends "base-company.twig" %}
+
+{% block company_content %}
+  <div class="site-width">
+    <ul class="news-mod">
+      {% for post in posts %}
+        <li class="news-item">
+          <i class="news-date">{{post.date}}</i>
+          <h3 class="news-h"><a href="{{post.news_url}}" class="news-link">{{post.title}}</a></h3>
+          <p class="news-p text-small">{{post.news_tease}}
+          {% if post.news_source_name %}
+            <a href="{{post.news_url}}" class="news-source">More&nbsp;at {{post.news_source_name}}&raquo;</a>
+          {% endif %}
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="tool-pagination site-width">
+    <ul class="pagination">
+        {% if pagination.prev %}
+          <li class="pagination-item"><a href="{{pagination.prev.link}}" class="pagination-link prev {{pagination.prev.link|length ? '' : 'invisible'}}">Prev</a></li>
+        {% endif %}
+        {% for page in pagination.pages %}
+          <li class="pagination-item">
+              {% if page.link %}
+                  <a href="{{page.link}}" class="pagination-link {{page.class}}">{{page.title}}</a>
+              {% else %}
+                  <span class="active-pagination {{page.class}}">{{page.title}}</span>
+              {% endif %}
+          </li>
+        {% endfor %}
+        {% if pagination.next %}
+          <li class="pagination-item"><a href="{{pagination.next.link}}" class="pagination-link next {{pagination.next.link|length ? '' : 'invisible'}}">Next</a></li>
+        {% endif %}
+    </ul>
+  </div>
+{% endblock %}

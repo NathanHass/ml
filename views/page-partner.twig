@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+  {% include 'mods/site-topper.twig' %}
+  <div class="site-width">
+    <ul class="partners-teaseFeed">
+      {% for partner in partners %}
+
+      <li class="partners-tease" id="partner--{{partner.partner_name|sanitize}}">
+        <div class="art-bd partners-logMod">
+        {% if partner.partner_site %}
+          <a href="{{partner.partner_site}}" target="_blank" class="partners-logoLink"><img src="{{TimberImage(partner.get_field('partner_logo')).src}}" class="partners-logo"></a>
+        {% else %}
+         <div class="partners-logoLink"><img src="{{TimberImage(partner.get_field('partner_logo')).src}}" class="partners-logo"></div>
+        {% endif %}
+        </div>
+        <div class="txt-bd">
+          <div class="partners-hgroup">
+            {% if partner.partner_site %}
+              <h3 class="partners-title"><a href="{{partner.partner_site}}" target="_blank" class="partners-titleLink">{{partner.partner_name}}</a></h3>
+            {% else %}
+              <h3 class="partners-title">{{partner.partner_name}}</h3>
+            {% endif %}
+            {% if partner.partner_date %}
+            <h5 class="partners-time">Since {{partner.partner_date}}</h5>
+            {% endif %}
+          </div>
+          <p class="partners-desc text-small">{{partner.partner_description}}{% if partner.project_link %}<a href="{{partner.partner_site}}" class="partners-productTease" target="_blank"> {{partner.partner_project_link_text}} &raquo;</a>{% endif %}</p>
+
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+{% endblock %}

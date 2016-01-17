@@ -1,0 +1,32 @@
+<svg class="process-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" version="1.1" x="0" y="0" viewBox="0 0 117.5 247.1" enable-background="new 0 0 117.5 247.1" xml:space="preserve">
+  <circle class="off" id="circle--1" fill="#002226" stroke="#072126" stroke-width="2" cx="58.7" cy="5" r="4"/>
+  <circle class="off" id="circle--3" fill="#002226" stroke="#072126" stroke-width="2" cx="5.4" cy="63.2" r="4"/>
+  <circle class="off" id="circle--2" fill="#002226" stroke="#072126" stroke-width="2" cx="58.3" cy="63.2" r="4"/>
+  <circle class="off" id="circle--4" fill="#002226" stroke="#072126" stroke-width="2" cx="111.5" cy="63.2" r="4"/>
+  <circle class="off" id="circle--6" fill="#002226" stroke="#072126" stroke-width="2" cx="5.4" cy="118.2" r="4"/>
+  <circle class="off" id="circle--5" fill="#002226" stroke="#072126" stroke-width="2" cx="58.3" cy="118.2" r="4"/>
+  <circle class="off" id="circle--7" fill="#002226" stroke="#072126" stroke-width="2" cx="111.5" cy="118.2" r="4"/>
+  <circle class="off" id="circle--9" fill="#002226" stroke="#072126" stroke-width="2" cx="5.4" cy="175" r="4"/>
+  <circle class="off" id="circle--8" fill="#002226" stroke="#072126" stroke-width="2" cx="58.3" cy="177.1" r="4"/>
+  <circle class="off" id="circle--10" fill="#002226" stroke="#072126" stroke-width="2" cx="111.5" cy="177.1" r="4"/>
+  <circle class="off" id="circle--11" fill="#002226" stroke="#072126" stroke-width="2" cx="58.3" cy="242.1" r="4"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="58.7" y1="187.5" x2="58.7" y2="222.4"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="111.5" y1="107.8" x2="111.5" y2="74"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M78.7 35.1h26.1c0 0 7 0 7 7v8.1"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M5.4 53.3v-10c0 0 0-8.1 8.1-8.1h25.2"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="58.7" y1="34.5" x2="58.7" y2="50.8"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="58.3" y1="75.6" x2="58.3" y2="106.9"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="5.4" y1="76.1" x2="5.4" y2="103.4"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M58.3 106.3v-7.9c0 0 0-8.1-8.1-8.1H13.5c0 0-8.1 0-8.1-8.1v-3.9"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M58.7 235.6v-20.9c0 0 0-8.1 8.1-8.1h36.6c0 0 8.1 0 8.1-8.1v-13"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M58.7 235.6v-20.9c0 0 0-8.1-8.1-8.1H13.9c0 0-8.1 0-8.1-8.1v-13"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="111.5" y1="129.7" x2="111.5" y2="166.3"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M58.3 106.3v-7.9c0 0 0-8.1 8.1-8.1h36.9c0 0 8.1 0 8.1-8.1v-3.9"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M58.3 161.5v-7.9c0 0 0-8.1-8.1-8.1H13.5c0 0-8.1 0-8.1-8.1v-3.9"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M58.3 161.5v-7.9c0 0 0-8.1 8.1-8.1h36.9c0 0 8.1 0 8.1-8.1v-3.9"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="5.4" y1="129.7" x2="5.4" y2="166.3"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="58.3" y1="129.7" x2="58.3" y2="166.3"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M83.5 35.2H66.8c0 0-8.1 0-8.1-8.1v-3"/>
+  <path fill="none" stroke="#37C1D1" stroke-width="1.26" d="M33.9 35.2h16.6c0 0 8.1 0 8.1-8.1v-3"/>
+  <line fill="none" stroke="#37C1D1" stroke-width="1.26" x1="58.7" y1="13.6" x2="58.7" y2="37.1"/>
+</svg>

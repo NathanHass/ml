@@ -1,0 +1,14 @@
+
+  <div class="ps-gallery">
+    <div class="swiper-container ps-swiper-container">
+      <div class="swiper-wrapper ps-swiper-wrapper">
+        {% for images in typeof_content.swiper_images %}
+        <div class="swiper-slide ps-swiper-slide">
+          <img class="ps-contentImg" src="{{TimberImage(images.image).src|letterbox(900, 500, '#EEEEEE')}}">
+        </div>
+        {% endfor %}
+      </div>
+      <button class="ps-button ps-prev"></button>
+      <button class="ps-button ps-next"></button>
+    </div>
+  </div>

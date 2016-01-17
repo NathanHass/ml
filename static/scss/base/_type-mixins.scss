@@ -1,0 +1,23 @@
+
+
+@mixin font($font-type: serif, $size: 16px, $weight: 400, $style: normal, $ls: 0, $caps:none) {
+
+  @if ($font-type == serif) or ($font-type == $serif) {
+    font-family: $serif;
+  }
+  @if ($font-type == sans) or ($font-type == $sans) {
+    font-family: $sans;
+  }
+  @if ($font-type == oswald) or ($font-type == $oswald) {
+    font-family: $oswald;
+  }
+  font-size: $size;
+  font-weight: $weight;
+  font-style: $style;
+  @if ($ls > 0) or ($ls < 0) {
+      letter-spacing: $ls;
+  }
+  @if $caps == caps {
+    text-transform: uppercase;
+  }
+}

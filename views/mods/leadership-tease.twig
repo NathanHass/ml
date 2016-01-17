@@ -1,0 +1,18 @@
+<li class="leadership-item">
+  {% if leader.linkedin_link %}
+    <a href="{{leader.linkedin_link}}" class="leadership-link" target="_blank">
+  {% endif %}
+
+    <div class="leadership-imgMod">
+      <img src="{{TimberImage(leader.headshot).src|resize(300, 300)}}" class="leadership-img">
+    </div>
+    <div class="leadership-hgroup">
+      <h4 class="company-name">{{leader.name}}</h4>
+      <h5 class="leadership-title">{{leader.job_title}}</h5>
+      <p class="leadership-desc text-small">{{leader.bio}}</p>
+    </div>
+
+  {% if leader.linkedin_link %}
+    </a>
+  {% endif %}
+</li>

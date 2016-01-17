@@ -1,0 +1,513 @@
+// =============================================
+
+//  WordPress Generic Styles
+
+// =============================================
+
+
+// ---------------------------
+// Variables
+
+$body-txt-spacing: 20px;      // Amount of space below each paragraph
+$blog-max-width: 680px;    // Maximum width of text column
+
+
+
+// ---------------------------
+// Basic Styles
+
+%default-link {
+  a {
+    color: $red;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+// ---------------------------
+// Headline Styles
+
+%style-headlines {
+  > h1 {
+    padding: 0 20px;
+    max-width: 580px;
+    @extend %h1;
+    clear: both;
+    margin: 40px auto 30px;
+  }
+  > h2 {
+    @extend %h2;
+    clear: both;
+    margin: 40px auto 30px;
+  }
+  > h3 {
+    padding: 0 20px;
+    max-width: 580px;
+    @extend %h3;
+    clear: both;
+    margin: 40px auto 30px;
+  }
+  > h4 {
+    padding: 0 20px;
+    max-width: 580px;
+    @extend %h4;
+    clear: both;
+    margin: 40px auto 30px;
+  }
+  > h5 {
+    padding: 0 20px;
+    max-width: 580px;
+    @extend %h5;
+    clear: both;
+    margin: 40px auto 30px;
+  }
+  > h6 {
+    padding: 0 20px;
+    max-width: 580px;
+    @extend %h6;
+    clear: both;
+    margin: 40px auto 30px;
+  }
+}
+
+
+// ---------------------------
+// List Styles
+
+@mixin style-lists {
+  ul {
+    list-style: disc outside; // Outside position lets bullets hang like good puncuation should
+  }
+
+  ul,
+  ol {
+    text-align: left;
+    padding: 0 0 0 22px;
+    max-width: 580px;
+    margin: 0 auto 30px;
+    @include font(serif, 16px);
+    li {
+      margin-bottom: 10px;
+    }
+      @extend %default-link;
+  }
+
+  // List inside list
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    margin: $body-txt-spacing 0;
+    list-style: circle outside;
+    // padding-left: 36px;
+  }
+}
+
+%style-lists {
+  @include style-lists;
+}
+
+
+// ---------------------------
+// Blockquote Styles
+
+%style-blockquote {
+  > blockquote {
+    text-align: left;
+    border-left: 3px solid #ccc;
+    padding-left: 18px;
+    max-width: 580px;
+    margin: 0 auto 30px;
+    margin-bottom: $body-txt-spacing;
+    text-style: italic;
+
+    // Descendent Styles
+    @extend %default-link;
+    @include style-lists;
+
+    p {
+      margin-bottom: $body-txt-spacing;
+    }
+  } // blockquote
+} // style-blockquote
+
+
+// ---------------------------
+// Video
+
+// Recommend using FitVids to detect video aspect ratio and properly style
+// http://fitvidsjs.com/
+
+
+
+// ---------------------------
+// WordPress Image Alignment
+
+
+// Force WordPress images to maintain aspect ratio
+// while staying within maximum width contraints
+
+// `width: auto`: By default, we make every image fill the width of its container.
+// Unless they reach the maximum natural width of the base image.
+// For some reason, images weren't respecting that rule.
+// `height: auto`: Ensures image maintains aspect ratio no matter its container
+// `margin` assures proper spacing throughout
+@mixin wp-img {
+  width: auto;
+  height: auto;
+  margin-top: 8px;
+  margin-bottom: 12px;
+}
+
+@mixin wp-img-align {
+  > img,
+  > a img,
+  > p img {
+    @include wp-img;
+  }
+
+  .wp-caption img {
+    // Makes caption fit snugly
+    margin-bottom: 4px;
+  }
+
+  .size-full,
+  .alignnone,
+  .alignright,
+  .aligncenter,
+  .alignleft {
+    max-width: 100%;
+
+      @include wp-img;
+    &.wp-caption > a > img,
+    &.wp-caption > a,
+    &.wp-caption > img {
+      // Makes caption fit snugly
+      height: auto;
+      max-width: 100%;
+      margin-bottom: 0;
+    }
+  }
+  .aligncenter{
+    max-width: 100%;
+    @include wp-img;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    &.wp-caption > a > img,
+    &.wp-caption > a,
+    &.wp-caption > img {
+      // Makes caption fit snugly
+      height: auto;
+      max-width: 100%;
+      margin-bottom: 0;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  // .wp-caption p {
+  //   max-width: 100%;
+  //   padding: 3px;
+  // }
+
+  .size-full {
+    margin: 0 auto 30px;
+    max-width: 100%;
+  }
+
+  .alignright,
+  .alignleft {
+    @include mq(500px) {
+      max-width: 50%;
+    }
+    // Sanity check to make sure floated image
+    // doesn't make text column too narrow and
+    // difficult to read
+  }
+  .alignright {
+    float: right;
+    margin-left: $body-txt-spacing;
+  }
+  .alignleft {
+    float: left;
+    margin-right: $body-txt-spacing;
+  }
+}
+
+%wp-img-align {
+  @include wp-img-align;
+} // wp-img-align
+
+
+// ---------------------------
+// All Generic Style Tags
+
+%style-tags {
+  @extend %style-headlines;
+  @extend %style-lists;
+  @extend %style-blockquote;
+  @extend %wp-img-align;
+  @extend %default-link;
+
+  > p {
+    @include wp-img-align;
+    letter-spacing: -.01em;
+  }
+
+  .wp-caption-text {
+    @include font(sans, 14px);
+    line-height: 120%;
+    margin-bottom: 20px;
+    @extend %default-link;
+    max-width: 100%;
+    padding: 7px 8px 8px;
+    background-color: #eee;
+  }
+
+} // style-tags
+
+//
+//  custom
+//
+
+.ps-contentWidth,
+.blog-body {
+  @extend %style-tags;
+  @extend %default-link;
+}
+
+.blog-header {
+  background-color: #eee;
+}
+
+.blog-metaMod {
+  border-top: 1px solid rgba(0,0,0,.3);
+  padding: 20px 0 0;
+  overflow: hidden;
+}
+
+.blog-hgroup{
+  padding: 40px 20px 30px;
+  margin: 0 auto;
+  max-width: $blog-max-width;
+}
+
+.blog-h1 {
+  @include font(oswald, 35px, 700);
+  line-height: 120%;
+  margin-bottom: 20px;
+  @include mq(600px) {
+    @include font(oswald, 45px, 700);
+  }
+}
+
+.blog-metaInfo {
+  float: left;
+}
+
+.blog-metaItem {
+  display: inline-block;
+  @include font(serif, 14px, 700);
+  margin-bottom: 10px;
+  @include mq(500px) {
+    font-size: 16px;
+  }
+}
+
+.blog-metaItem--author {
+  color: $navy;
+  &:after {
+    content: '|';
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+}
+
+.blog-metaItem--date {
+  color: #BABABA;
+}
+
+.ps-contentWidth {
+  p {
+    @include font(serif, 17px);
+    line-height: 150%;
+    max-width: 580px;
+    margin: 0 auto 20px;
+    &.has-iframe-inside {
+      max-width: 100%;
+    }
+  }
+  * + * {
+    margin-bottom: 20px;
+  }
+}
+
+.blog-body {
+  max-width: $blog-max-width;
+  margin: 0 auto;
+  padding: 50px 20px;
+  p {
+    @include font(serif, 17px);
+    line-height: 150%;
+    max-width: 580px;
+    margin: 0 auto 20px;
+    &.has-iframe-inside {
+      max-width: 100%;
+    }
+  }
+  * + * {
+    margin-bottom: 20px;
+  }
+}
+
+.blog-socialList {
+  max-width: $blog-max-width;
+  margin: 0 auto;
+  float: right;
+}
+
+.blog-socialItem {
+  display: inline-block;
+  margin-right: 8px;
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.blog-socialLink {
+  display: block;
+  border-radius: 50%;
+  @include size(26px);
+  background-color: $navy;
+  background-position: 50% 50%;
+  background-size: 80%;
+  @include trans;
+  &:hover {
+    background-color: tint($navy, 20%);
+  }
+}
+
+.blog-socialLink--twitter {
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/twitter.png');
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/twitter.svg');
+}
+
+.blog-socialLink--facebook {
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/facebook.png');
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/facebook.svg');
+}
+
+.blog-socialLink--linkedin {
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/linkedin.png');
+  background-image: url('/wp-content/themes/muzzy_lane/static/img/linkedin.svg');
+}
+
+.has-iframe-inside {
+  max-width: 100%;
+  clear: both;
+  overflow: hidden;
+}
+
+
+//
+// Blog Index
+//
+
+.blog-feed {
+  padding: 20px 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.tease {
+  overflow: hidden;
+  border-bottom: 1px solid #C5C5C5;
+  padding: 30px 0;
+  &:last-child {
+    border-bottom: 0px solid #C5C5C5;
+  }
+  @include mq(700px) {
+      padding: 50px;
+  }
+}
+
+.tease-h3 {
+  @include font(oswald, 22px, 700);
+  margin-bottom: 5px;
+  display: inline-block;
+  color: $navy;
+  margin-bottom: 10px;
+  @include mq(500px) {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+  > a {
+    @include link($navy);
+  }
+}
+
+.tease-metaItem {
+  display: inline-block;
+  @include font(serif, 14px, 700);
+  margin-bottom: 10px;
+  @include mq(500px) {
+    font-size: 16px;
+  }
+}
+
+.tease-metaItem--author {
+  color: $navy;
+  &:after {
+    content: '|';
+    display: inline-block;
+    margin-left: 10px;
+    margin-right: 5px;
+  }
+}
+
+.tease-metaItem--date {
+  color: #BABABA;
+}
+
+
+.tease-withImg .tease-body {
+  margin-right: 140px;
+  float: left;
+  max-width: 100%;
+}
+
+
+.tease-p {
+  a {
+    padding: 0px;
+    @include font(sans, 14px, 700, normal, 1px, caps);
+    color: $red;
+    @include link($red);
+  }
+}
+
+.tease-img {
+  display: block;
+  @include size(120px);
+  border-radius: 50%;
+  background-size: cover;
+  margin-left: -120px;
+  float: right;
+  filter: grayscale(100%);
+  @include trans;
+  .tease:hover & {
+    filter: grayscale(0%);
+  }
+}
+
+
+
+
+
+
+

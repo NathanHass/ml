@@ -1,0 +1,246 @@
+//
+//   product page
+//
+
+$product-break1: 500px;
+
+.ps-topper {
+  background-color: $navy;
+  display: block;
+  &.ps-topper--image {
+    background-size: cover;
+    background-position: 50% 50%;
+  }
+}
+
+.ps-topperHgroup {
+  padding: 30px 0;
+  color: #fff;
+  @include mq($product-break1) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .ps-topper--image & {
+    color: #fff;
+    padding-top: 190px;
+    padding-bottom: 20px;
+    background-image: (linear-gradient(rgba(0,0,0,0)30%, rgba(0,0,0,.8)100%));
+    @include mq($product-break1) {
+      padding-top: 300px;
+      padding-bottom: 25px;
+    }
+  }
+}
+
+.ps-topperH,
+.ps-topperSub {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 15px;
+}
+
+.ps-topperH {
+  @include font(serif, 24px, 700);
+  line-height: 1.2em;
+  margin-bottom: 10px;
+  @include mq($product-break1) {
+    font-size: 50px;
+    line-height: 1em;
+    margin-bottom: 20px;
+    font-weight: 400;
+  }
+}
+
+.ps-topperSub {
+  @include font(oswald, 17px, 700, normal, 1px, caps);
+  @include mq($product-break1) {
+    font-size: 20px;
+  }
+}
+
+.ps-body {
+  padding: 20px 0;
+  &:first-letter {
+    float: left;
+    font-size: 76px;
+    line-height: 0.9em;
+    padding: 7px 12px 0 3px;
+  }
+  * + * {
+    margin-bottom: 14px;
+  }
+  @include mq($product-break1) {
+    padding: 50px 0;
+    * + * {
+      margin-bottom: 20px;
+    }
+  }
+  .has-image-inside {
+    max-width: none;
+  }
+}
+
+.ps-awardsMod {
+  max-width: 700px;
+  padding: 0 20px;
+  margin: 0 auto 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.ps-awardsImgMod {
+  // width: 33.33%;
+  // float: left;
+  width:  30%;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.ps-awardsImg {
+  max-width: 100%;
+  max-height: 100px;
+}
+
+.ps-contentWidth {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.ps-contentP {
+  @include font(serif, 17px);
+  line-height: 150%;
+  max-width: 580px;
+  margin: 0 auto 20px;
+  &.has-iframe-inside {
+    max-width: 100%;
+  }
+}
+
+.has-iframe-inside {
+  margin: 50px 0;
+}
+
+
+// swiper
+.ps-contentImg {
+  max-width: 100%;
+}
+
+.ps-swiper-slide {
+  // max-width: 800px;
+  margin: 0 auto;
+  padding: 0 5px;
+  position: relative;
+  &:after {
+    @include pseudo(0 5px 0 5px);
+    background-color: rgba(0,0,0,.65);
+    @include trans;
+  }
+  &.swiper-slide-active:after {
+    background-color: rgba(0,0,0,0);
+  }
+}
+
+$ps-border: 3px solid #fff;
+
+
+.ps-button {
+  @include input-default;
+  z-index: 1;
+  width: 16.3%;
+  &:after {
+    @include pseudo(50% n n 50%);
+    @include size(40px);
+    margin-left: -20px;
+    margin-top: -20px;
+    @include trans;
+  }
+}
+
+.ps-prev {
+  @include absolute(0 n 0 0);
+  &:after {
+    border-top: $ps-border;
+    border-left: $ps-border;
+    transform: rotate(-45deg);
+    opacity: .7;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+.ps-next {
+  @include absolute(0 0 0 n);
+  &:after {
+    border-top: $ps-border;
+    border-right: $ps-border;
+    transform: rotate(45deg);
+    opacity: .7;
+  }
+  &:hover {
+    &:after {
+      opacity: 1;
+    }
+  }
+}
+
+
+.has-iframe-inside,
+.ps-gallery {
+  margin: 25px 0;
+  @include mq($product-break1) {
+    margin: 50px 0;
+  }
+}
+
+//  product index
+.product-mod {
+  padding: 50px 20px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.product-grid {
+  @include mq(600px) {
+    @include media-grid(2, 50px, '.product-item')
+  }
+}
+.product-item {
+  text-align: center;
+  margin-bottom: 50px;
+  display: block;
+}
+
+.product-itemImg {
+  @include size(200px);
+  margin: 0 auto 40px;
+  display: block;
+  border-radius: 50%;
+  background-color: $navy;
+}
+
+.productIndex {
+  display: block;
+  margin-top: -150px;
+}
+
+.productIndex-topper {
+  height: 250px;
+  background-color: $navy;
+}
+
+
+.product-h {
+  @include font(oswald, 18px, 700);
+  margin-bottom: 5px;
+  display: block;
+  text-align: center;
+  @include mq(500px) {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+}

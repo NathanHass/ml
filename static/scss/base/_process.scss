@@ -1,0 +1,173 @@
+.capa-section,
+.card-section {
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.card-header {
+  max-width: 500px;
+  margin: 0 auto;
+  @include mq(900px) {
+    max-width: 350px;
+    height: 100vh;
+    position: absolute;
+    &.sticky {
+      position: fixed;
+      top: 80px;
+    }
+    &.after {
+      position: absolute;
+      bottom: 0px;
+    }
+  }
+}
+
+
+circle {
+  @include trans(.4s, all, ease);
+  &.off {
+    fill: rgb(0, 32, 37);
+  }
+  &.on {
+    fill: $yellow;
+  }
+}
+
+.process-svg {
+  display: none;
+  .inlinesvg & {
+    @include mq(900px) {
+      display: block;
+      max-height: 550px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.process-png {
+  display: none;
+  .no-inlinesvg & {
+    @include mq(900px) {
+      display: block;
+      max-height: 550px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.card-headerHgroup {
+  margin-bottom: 50px;
+}
+
+.card-column {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  @include mq(900px) {
+    float: right;
+    width: 500px;
+    margin: auto;
+  }
+}
+
+.card-width {
+  @include pie-clearfix;
+}
+
+.card-inner {
+  text-align: center;
+  padding: 40px 10px;
+  position: relative;
+}
+
+.card-icon {
+  background-color: $navy;
+  border-radius: 50%;
+  display: block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 50%;
+  @include trans(.4s, all, ease);
+  position: absolute;
+  left: 50%;
+  transform: translateY(-5px);
+  @include size(50px);
+  margin-left: -25px;
+  // border: 2px solid #fff;
+  // box-shadow: 0 2px 2px rgba(0,0,0,.2);
+  .active &,
+  .touch & {
+    transform: translateY(-65px);
+  }
+}
+
+
+.card-text {
+  @include font(oswald, 30px);
+  line-height: 1.4em;
+  color: $navy;
+  opacity: 0;
+  @include trans(.4s, all, ease);
+  .active &,
+  .touch & {
+    opacity: 1;
+  }
+}
+
+.card {
+  margin-bottom: 60px;
+  background-color: #ddd;
+  @include trans(.4s, all, ease);
+  @include mq(900px) {
+    margin-bottom: 80px;
+  }
+  .touch &,
+  &.active {
+    background-color: $blue;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// capa section
+
+
+.capa-grid {
+  max-width: 800px;
+  @include mq(max, 500px) {
+    @include media-grid(2, 20px, '.capa-item');
+  }
+  @include mq(500px) {
+    @include media-grid(3, 20px, '.capa-item');
+    margin: 0 auto;
+  }
+}
+
+.capa-item {
+  @include mq(500px) {
+    margin-bottom: 50px;
+  }
+}
+
+.capa-icon {
+  display: block;
+  @include size(86px);
+  background-color: $yellow;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+
+.capa-iconH {
+  @include font(sans, 18px, 700, normal, 1px, caps);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.capa-textMod {
+  margin-bottom: 80px;
+}
+

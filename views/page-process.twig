@@ -1,0 +1,68 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+{% include 'mods/site-topper.twig' %}
+
+<div class="platform-introMod">
+  <div class="site-width">
+    <div class="text-width">
+      <h2 class="h2">{{post.process_topper_title}}</h2>
+      <p class="text-big">{{post.process_topper_paragraph}}</p>
+    </div>
+  </div>
+</div>
+
+<div class="card-section bg-gray">
+  <div class="site-width card-width">
+    <div class="card-header">
+      <div class="card-headerHgroup">
+        <h3 class="h3">{{post.process_playbook_title}}</h3>
+        <p class="text-small">{{post.process_playbook_paragraph}}</p>
+      </div>
+    {% include 'mods/process-svg.svg' %}
+    <img src="{{site.theme.path}}/static/img/process-map.png" class="process-png">
+    </div>
+    <div class="card-column">
+      <ul class="card-stack">
+         {% for item in post.get_field('process_playbook_items') %}
+          <li class="card" data-count="{{loop.index}}">
+            <div class="card-inner">
+              <i class="card-icon card-icon--{{loop.index}}" style="background-image: url('{{TimberImage(item.process_repeater_icon).src}}')"></i>
+              <h6 class="card-text">{{item.process_repeater_text}}</h6>
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="page-break {{post.process_post_playbook_background_treatment}}" {% if post.process_post_playbook_background_treatment == 'bg-image bg-image--custom' %} style="background-image: url('{{TimberImage(post.process_post_playbook_custom_background_image).src}}')" {% endif %}>
+  <p class="page-breakText">{{post.process_post_playbook_section_content}}</p>
+</div>
+
+<div class="capa-section">
+  <div class="site-width">
+    <div class="capa-textMod">
+      <div class="text-width">
+        <h3 class="h2">{{post.process_roles_title}}</h3>
+        <p class="text-big">{{post.process_roles_paragraph}}</p>
+      </div>
+    </div>
+    <ul class="capa-grid">
+      {% for item in post.get_field('capabilities') %}
+      <li class="capa-item">
+        <i class="capa-icon" style="background-image: url('{{TimberImage(item.icon).src}}');"></i>
+        <h5 class="capa-iconH">{{item.text}}</h5>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}
+
+{% block page_scripts %}
+  <script src="{{site.theme.path}}/static/js/process.js"></script>
+{% endblock %}
+

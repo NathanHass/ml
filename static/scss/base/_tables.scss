@@ -1,0 +1,28 @@
+.table {
+  @include font(sans, 14px, 400);
+  width: 100%;
+  margin-bottom: 20px;
+
+  // Cells
+  th,
+  td {
+    padding: 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #e5e5e5;
+    @include trans;
+    text-align: left;
+  }
+
+  th {
+    // font-size: 12px;
+    font-weight: bold;
+  }
+
+  a {
+    @include trans;
+    text-decoration: underline;
+    &:hover {
+      color: $red;
+    }
+  }
+}

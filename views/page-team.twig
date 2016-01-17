@@ -1,0 +1,37 @@
+{% extends "base-company.twig" %}
+
+{% block company_content %}
+
+<div class="leadership-mod">
+  <div class="site-width">
+    <h2 class="h1-big leadership-modH1">Leadership</h2>
+    <ul class="leadership-list">
+      {% for leader in post.get_field('leadership') %}
+        {% include 'mods/leadership-tease.twig' %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<div class="advisors-mod bg-gray">
+  <div class="site-width">
+    <h2 class="h1-big">Advisors</h2>
+    <ul class="advisors-list">
+
+      {% for advisor in post.get_field('advisors') %}
+        <li class="advisors-item">
+          {% if advisor.link %}
+          <h4 class="company-name"><a href="{{advisor.link}}" target="_blank">{{advisor.name}}</a></h4>
+          {% else %}
+           <h4 class="company-name">{{advisor.name}}</h4>
+          {% endif %}
+          <p class="text-small--bold advisors-cred">{{advisor.credentials}}</p>
+          <p class="text-small advisors-info--trunc">{{advisor.bio|excerpt(30)}} <button class="advisors-more">Read More</button></p>
+          <p class="text-small advisors-info--full">{{advisor.bio}} <button class="advisors-more">hide</button></p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

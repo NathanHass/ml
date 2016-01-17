@@ -1,0 +1,57 @@
+// base page styles
+
+html,body {
+  // height: 100%;
+  // width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background-color: $bg;
+  color: $navy;
+  // @include font(sans);
+}
+
+// PUT THIS SOMEWHERE SMARTER
+::-moz-selection{ background: $highlight; color: $selection-color-type; text-shadow: none; }
+::selection { background: $highlight; color: $selection-color-type; text-shadow: none; }
+
+select::-ms-expand {
+    display: none;
+}
+
+//  j.mp/webkit-tap-highlight-color
+a:link { -webkit-tap-highlight-color: $highlight; }
+
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:focus {
+    outline: 0;
+  }
+}
+
+button {
+  @include input-default;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+i {
+  font-style: normal;
+}
+
+.temp-body {
+  height: 500px;
+  display: block;
+}
+
+
+.disable-hover,
+.disable-hover * {
+  pointer-events: none !important;
+}
+
+@-ms-viewport{width:device-width}

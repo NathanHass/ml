@@ -1,0 +1,13 @@
+<footer class="footer">
+  <div class="footer-logoMod">
+    <a href="/"><img src="{{site.theme.path}}/static/img/logo.png" class="footer-logo"></a>
+  </div>
+  <div class="footer-linkMod">
+    <ul class="footer-linkList">
+      {% for item in footer_nav.get_items %}
+        <li class="footer-linkItem"><a class="footer-link" href="{{item.get_link}}">{{item.title}}</a></li>
+      {% endfor %}
+    </ul>
+    <span class="footer-copyright">Copyright {{"now"|date('Y')}}  Muzzy Lane Software. All rights reserved</span>
+  </div>
+</footer>

@@ -1,0 +1,111 @@
+.hp-topperMod {
+  padding: 100px 0;
+  background-size: cover;
+  @include mq(500px) {
+  padding: 180px 0;
+  }
+  text-align: center;
+}
+
+.hp-topperH1 {
+  max-width: 650px;
+  margin: 0 auto;
+  @include font(oswald, 35px, 400);
+  // color: $navy;
+    text-align: center;
+  margin-bottom: 10px;
+  @include mq(500px) {
+   font-size: 55px;
+  }
+}
+
+.hp-topperH2 {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+  @include font(serif, 18px, 400);
+  margin-bottom: 30px;
+  @include mq(500px) {
+   font-size: 22px;
+  }
+}
+
+.hp-button {
+  padding: 8px 20px 7px;
+  @include font(oswald, 15px, 700, normal, 1px, caps);
+  border: 2px solid;
+  .bg-navy & {
+    color: #fff;
+  }
+}
+
+
+// - - - - - - - //
+
+.hp-layoutBlock {
+  padding: 80px 0;
+  text-align: center;
+  @include mq(500px) {
+    padding: 120px 0;
+  }
+}
+
+.hp-pageH {
+  max-width: 650px;
+  margin: 0 auto;
+  @include font(oswald, 30px, 400);
+  margin-bottom: 10px;
+  @include mq(500px) {
+   font-size: 45px;
+  }
+  .bg-red &,
+  .bg-navy &,
+  .bg-blue & {
+    color: #fff;
+  }
+}
+.hp-pageSub {
+  max-width: 650px;
+  margin: 0 auto;
+  @include font(serif, 16px, 400);
+  margin-bottom: 30px;
+  @include mq(500px) {
+   font-size: 18px;
+  }
+  .bg-navy & {
+    color: #fff;
+  }
+}
+
+.hp-partnerLogoWidth {
+  max-width: 1100px;
+  margin: 0 auto 50px;
+}
+
+
+.hp-partnerLogoGrid {
+  margin-bottom: 50px;
+  @include mq(max, 500px) {
+    @include media-grid(2, 20px, '.hp-partnersLogoMod')
+  }
+  @include mq(500px, 800px) {
+    @include media-grid(3, 50px, '.hp-partnersLogoMod')
+  }
+  @include mq(800px) {
+    @include media-grid(4, 50px, '.hp-partnersLogoMod')
+  }
+}
+.hp-partnersLogoMod {
+  vertical-align: middle;
+  margin-bottom: 50px;
+}
+
+.hp-partnersLogo  {
+  width: 100%;
+  vertical-align: middle;
+  filter: grayscale(100%);
+  @include trans;
+  &:hover {
+    filter: grayscale(0%);
+  }
+}

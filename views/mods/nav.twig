@@ -1,0 +1,52 @@
+<nav class="nav">
+   <a class="nav-logoMod" href="/">
+      <img src="{{site.theme.path}}/static/img/logo.png" class="nav-logo">
+   </a>
+   <ul class="nav-list">
+
+   {% for item in primary_nav.get_items %}
+      <li class="nav-item"><a class="nav-link" href="{{item.get_link}}">{{item.title}}</a></li>
+   {% endfor %}
+   </ul>
+   <button class="nav-menuBtn js-navTrigger">
+      <i class="nav-menuBtnText nav-menuBtnText--menu">Menu</i>
+      <i class="nav-menuBtnText nav-menuBtnText--products">Products</i>
+      <i class="nav-menuBtnIcon"></i>
+   </button>
+</nav>
+<div class="productsNav">
+   <div class="productsNav-closeMod">
+      <button class="productsNav-closeBtn js-navTrigger">close</button>
+   </div>
+
+     {% for item in options.product_nav %}
+         <a href="/product/{{item.post_name}}" class="productsNav-tease">
+            <div class="productsNav-artbd art-bd">
+            {% if item.tease_thumbnail %}
+               <div class="productsNav-img" style="background-image: url('{{TimberImage(item.tease_thumbnail).src|resize(140, 140)}}')"></div>
+            {% else %}
+               <div class="productsNav-img" style="background-image: url('{{TimberImage(item.lead_product_image).src|resize(140, 140)}}')"></div>
+            {% endif %}
+            </div>
+            <div class="productsNav-txtbd txt-bd">
+            {% if item.tease_headline %}
+               <h3 class="productsNav-h"><span>{{item.tease_headline}}</span></h3>
+               {% else %}
+               <h3 class="productsNav-h"><span>{{item.product_title}}</span></h3>
+            {% endif %}
+            {% if item.tease_subhead %}
+               <h4 class="productsNav-deck"><span>{{item.tease_subhead}}</span></h4>
+            {% endif %}
+            </div>
+         </a>
+
+   {% endfor %}
+   <a href="/products" class="productsNav-productLink">View All Products</a>
+   <ul class="mobileNav">
+
+   {% for item in primary_nav.get_items %}
+      <li class="mobileNav-item"><a class="mobileNav-link" href="{{item.get_link}}">{{item.title}}</a></li>
+   {% endfor %}
+      <li class="mobileNav-item"><a href="/products" class="mobileNav-link">Products</a></li>
+   </ul>
+</div>

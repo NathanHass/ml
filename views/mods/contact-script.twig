@@ -1,0 +1,47 @@
+<script>
+    function initialize() {
+      var ml_map_id = 'mymaps';
+      var ml_location = new google.maps.LatLng({{post.latitude}}, {{post.longitude}});
+      var mapCanvas = document.getElementById('map-canvas');
+      var image = {
+        url: '{{site.theme.path}}/static/img/map-icon.png',
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25.438, 30.435)
+      }
+      var mapStyles = [
+                        {
+                          "stylers": [
+                            { "saturation": -100 },
+                            { "gamma": 1.2 },
+                            { "visibility": "simplified" }
+                          ]
+                        },{
+                          "featureType": "water",
+                          "stylers": [
+                            { "lightness": -30 }
+                          ]
+                        }
+                      ];
+      var mapOptions = {
+        center: ml_location,
+        zoom: 16,
+        scrollwheel: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeControlOptions: {
+             mapTypeIds: [google.maps.MapTypeId.ROADMAP, ml_map_id]
+        }
+      }
+      var marker = new google.maps.Marker({
+        position: ml_location,
+        title:"Hello World!",
+        icon: image
+      });
+      var mapType = new google.maps.StyledMapType(mapStyles, { name:"Grayscale" });
+      var map = new google.maps.Map(mapCanvas, mapOptions)
+      map.mapTypes.set(ml_map_id, mapType);
+      map.setMapTypeId(ml_map_id);
+      marker.setMap(map);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>

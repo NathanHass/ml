@@ -1,0 +1,40 @@
+
+// Import variables
+
+@import "base/variables";
+
+// reset
+
+@import "base/reset";
+
+@import "base/mixins";
+@import "base/type-mixins";
+@import "base/type";
+@import "base/site-styles";
+@import "base/swiper";
+@import "base/forms";
+@import "base/tables";
+@import "base/lists";
+@import "base/swiper";
+
+// Import base style
+
+@import "base/base";
+
+// Import nav
+
+@import "base/nav";
+
+// Import footer
+
+@import "base/footer";
+
+// pages
+
+@import "base/company";
+@import "base/partners";
+@import "base/process";
+@import "base/blog";
+@import "base/index";
+@import "base/contact";
+@import "base/products";

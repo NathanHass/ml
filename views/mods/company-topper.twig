@@ -1,0 +1,14 @@
+<div class="siteTopper siteTopper--{{post.title|sanitize}}">
+  <h1 class="siteTopper-title">{{post.page_headline}}</h1>
+  {% if post.page_subtitle %}
+    <h2 class="siteTopper-subTitle">{{post.page_subtitle}}</h2>
+  {% endif %}
+</div>
+<nav class="companyNav">
+  <ul class="companyNav-list">
+    <li class="companyNav-item"><a href="/company/platform" class="companyNav-link companyNav-link--platform">Platform</a></li>
+    <li class="companyNav-item"><a href="/company/team" class="companyNav-link companyNav-link--team">Team</a></li>
+    <li class="companyNav-item"><a href="/company/jobs" class="companyNav-link companyNav-link--jobs">Jobs</a></li>
+    <li class="companyNav-item"><a href="/company/news" class="companyNav-link companyNav-link--news">News</a></li>
+  </ul>
+</nav>

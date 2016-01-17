@@ -1,0 +1,10 @@
+{% extends "base.twig" %}
+
+{% block body_class %}page-{{post.title|sanitize}}{% endblock %}
+
+{% block content %}
+  {% include 'mods/company-topper.twig' %}
+  {% block company_content %}
+      this is the content
+  {% endblock %}
+{% endblock %}

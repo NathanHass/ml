@@ -1,0 +1,45 @@
+{% extends "base.twig" %}
+
+{% block body_class %}single-product{% endblock %}
+
+{% block content %}
+
+{% if post.lead_product_image %}
+<div class="ps-topper ps-topper--image" style="background-image: url('{{TimberImage(post.lead_product_image).src}}');">
+{% else %}
+<div class="ps-topper">
+{% endif %}
+  <div class="ps-topperHgroup">
+    <h2 class="ps-topperH">{{post.product_title}}</h1>
+    <h3 class="ps-topperSub">{{post.product_subtitle}}</h3>
+  </div>
+</div>
+
+<div class="ps-body">
+  {% if post.awards %}
+  <div class="ps-awardsMod">
+  {% for typeof_content in post.get_field('awards')%}
+    <div class="ps-awardsImgMod">
+      <img src="{{TimberImage(typeof_content.image).src}}" class="ps-awardsImg">
+    </div>
+  {% endfor %}
+  </div>
+  {% endif %}
+  {% for typeof_content in post.get_field('post_content')%}
+    {% if typeof_content.acf_fc_layout == 'post_body_content' %}
+    <div class="ps-contentWidth">
+        {{typeof_content.main_content}}
+    </div>
+    {% elseif typeof_content.acf_fc_layout == 'post_swiper' %}
+      {% include 'mods/product-gallery.twig' %}
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% endblock %}
+
+{% block page_scripts %}
+  <script src="{{site.theme.path}}/bower_components/swiper/dist/js/swiper.jquery.min.js"></script>
+  <script src="{{site.theme.path}}/bower_components/fitvids/jquery.fitvids.js"></script>
+  <script src="{{site.theme.path}}/static/js/product.js"></script>
+{% endblock %}
