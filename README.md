@@ -31,7 +31,7 @@ Timber helps you create fully-customized WordPress themes faster with more susta
 
 Continued development of this site will require a familiarity with [Timber](https://github.com/jarednova/timber), [Advanced Custom Fields (ACF)](http://www.advancedcustomfields.com/resources/), and the way they [work together](https://github.com/jarednova/timber/wiki/ACF-Cookbook). Jared Novak, creator of Timber, has done a far better job than I could do documenting the intricacies of Timber, so I will link to his [docs](https://github.com/jarednova/timber/wiki) where appropriate. 
 
-### Making New Pages
+### [Making New Pages](https://github.com/jarednova/timber/wiki/Custom-Page-Templates)
 #### Custom Twig File
 
 Say you've created a page called “Authors” and WordPress has given it the slug `authors`.
