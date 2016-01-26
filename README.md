@@ -41,3 +41,7 @@ Say you've created a page called “Authors” and WordPress has given it the sl
 
 #### Custom PHP Files
 If you need to do something special for this page in PHP, you can use standard [WordPress template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/) to gather and manipulate data for this page. In the above example, you would create a file called `/wp-content/themes/ml/page-authors.php` and populate it with the necessary PHP. Again, you can use the contents of the starter theme's [page.php](https://github.com/NathanHass/ml/blob/master/page.php) file as a guide.
+
+
+## Twig
+Twig is a great template engine for PHP by the good folks at SensioLabs. To learn more about how to use it, check out the [docs](http://twig.sensiolabs.org/doc/templates.html)
