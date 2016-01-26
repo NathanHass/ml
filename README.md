@@ -1,7 +1,7 @@
 # Muzzy Lane Wordpress Theme
 
-
 ## Getting Started
+
 ### Running Wordpress Locally
 There are several ways you can run Wordpress locally. I used [VVV](https://github.com/Varying-Vagrant-Vagrants/VVV) to set up my local environment. 
 
@@ -26,3 +26,18 @@ $ npm install
 $ gulp watch
 ```
 
+## Timber
+Timber helps you create fully-customized WordPress themes faster with more sustainable code. With Timber, you write your HTML using the [Twig Template Engine](http://twig.sensiolabs.org/) separate from your PHP files. 
+
+Continued development of this site will require a familiarity with [Timber](https://github.com/jarednova/timber), [Advanced Custom Fields (ACF)](http://www.advancedcustomfields.com/resources/), and the way they [work together](https://github.com/jarednova/timber/wiki/ACF-Cookbook). Jared Novak, creator of Timber, has done a far better job than I could do documenting the intricacies of Timber, so I will link to his [docs](https://github.com/jarednova/timber/wiki) where appropriate. 
+
+### Making New Pages
+#### Custom Twig File
+
+Say you've created a page called “Authors” and WordPress has given it the slug `authors`.
+
+- Create a file called page-authors.twig inside your views and go crazy.
+- I recommend copying-and-pasting the contents of [page.twig](https://github.com/NathanHass/ml/blob/master/views/page.twig) into here so you have something to work from.
+
+#### Custom PHP Files
+If you need to do something special for this page in PHP, you can use standard [WordPress template hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/) to gather and manipulate data for this page. In the above example, you would create a file called `/wp-content/themes/ml/page-authors.php` and populate it with the necessary PHP. Again, you can use the contents of the starter theme's [page.php](https://github.com/NathanHass/ml/blob/master/page.php) file as a guide.
