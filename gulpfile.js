@@ -6,7 +6,6 @@ var $ = require('gulp-load-plugins')();
 
 // define tasks here
 
-
 gulp.task('sass', function () {
   return gulp.src('static/scss/*.scss')
 
@@ -22,7 +21,7 @@ gulp.task('sass', function () {
     .pipe($.autoprefixer('last 10 version'))
 
     // Write development assets
-    .pipe(gulp.dest('static/css'))
+    .pipe(gulp.dest('static/css'));
 
 });
 

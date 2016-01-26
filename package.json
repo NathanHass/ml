@@ -1,0 +1,25 @@
+{
+  "name": "muzzy_lane",
+  "version": "1.0.0",
+  "description": "Muzzy Lane Wordpress Theme",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NathanHass/ml.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NathanHass/ml/issues"
+  },
+  "homepage": "https://github.com/NathanHass/ml#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-sass": "^2.1.1",
+    "gulp-watch": "^4.3.5"
+  }
+}
